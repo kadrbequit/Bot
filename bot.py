@@ -7,17 +7,17 @@ from flask import Flask, send_file, abort
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext, CallbackQueryHandler
 
-# ============ KONFİGÜRASYON ============
+
 BOT_TOKEN = "8885929210:AAFeZn3_dXmSbqixrkcupHPTq0-x8u6iqRo"
 ADMIN_ID = 8960531687
 
-# Render'dan alacağın URL'yi buraya yaz
-BASE_URL = "https://SENIN_APP_ADIN.onrender.com"  # ⚠️ SONRA DEĞİŞTİR!
+
+BASE_URL = "BASE_URL = "https://bot-td5t.onrender.com""  # ⚠️ SONRA DEĞİŞTİR!
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
-# ============ VERİ DEPOLAMA ============
+
 DATA_FILE = "data.json"
 
 def load_data():
@@ -33,7 +33,7 @@ def save_data(data):
 
 data = load_data()
 
-# ============ FLASK - DOSYA SUNUCU ============
+
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -73,7 +73,7 @@ def stats_page():
     </ul>
     """
 
-# ============ TELEGRAM BOT ============
+
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text(
         "🤖 *Dosya Paylaşım Botu*\n\n"
@@ -201,7 +201,7 @@ async def stats_callback(update: Update, context: CallbackContext):
     
     await query.edit_message_text(msg, parse_mode="Markdown")
 
-# ============ BOTU BAŞLAT ============
+
 if __name__ == "__main__":
     from threading import Thread
     
